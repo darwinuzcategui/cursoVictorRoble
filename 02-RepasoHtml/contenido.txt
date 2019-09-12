@@ -1,0 +1,16 @@
+1. Que htmk
+2. Estructura html
+3. Etiquetas para texto
+4. Lista
+5. Imagenes.
+6. Tablas.
+7. Formularios
+8. Ejerciso (elance y la primera web)
+
+**********************************************
+
+1.HTML ES UN LENGUAJE DE MARCAR DE HIPERTEXTO
+PERMITE HACER LA ESTRUCTURA BASICA.
+BASICAMENTE ES LA ESTRUCTURA DE PAGINA
+PARA ESTILO Y DISEÑO CCS.
+LA ESTRUCTURA BASICA DE LA PAGINA LENGUAJE DE MARCA DE HYPERTEXTO

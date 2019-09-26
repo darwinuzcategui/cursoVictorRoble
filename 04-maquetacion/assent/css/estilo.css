@@ -1,0 +1,13 @@
+/* 
+slectorespuede ser por etiquetas,#id
+o .clases 
+body etiquetas
+#id
+.clases
+*/
+
+body {
+    text-align: center;
+    background: orange;
+
+}

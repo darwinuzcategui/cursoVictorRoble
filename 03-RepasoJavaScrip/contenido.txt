@@ -1,0 +1,6 @@
+1- Prepara entorno de desarrollo
+2- Repaso general de Java scrip
+3- objeto JSON
+4- Promesas
+5- Clases
+6- Herencia.

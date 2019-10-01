@@ -217,17 +217,48 @@ body {
     background: rgb(50, 15, 107);
 }
 
-input[type="text"] {
+.mid-form {
+    width: 60%;
+    margin: 0px auto;
+}
+
+.mid-form label {
+    display: block;
+    float: left;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 17px;
+}
+
+input[type="text"],
+textarea {
     width: 100%;
-    height: 30px;
+    min-height: 30px;
     border: 1px solid rgb(240, 237, 232);
     padding: 3px;
     margin-bottom: 5px;
     transition: 300ms all;
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+textarea:focus {
     box-shadow: 0px 0px 27px orange inset;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 150px;
+    max-height: 300px;
+}
+
+.radiobuttons {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
 }
 
 #footer {
@@ -294,4 +325,22 @@ input[type="text"]:focus {
     font-size: 40px;
     border-bottom: 3px solid rgb(240, 237, 232);
     padding-bottom: 15px;
+}
+
+.articulo-detalle .image-wrap {
+    float: none;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.articulo-detalle .image-wrap img {
+    width: 100%;
+    height: auto;
+}
+
+.articulo-detalle .subtitulo {
+    margin-top: 16px;
+    margin-bottom: 0px;
+    border: none;
 }

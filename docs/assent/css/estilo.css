@@ -46,9 +46,9 @@ body {
 .app-logo {
     display: block;
     float: left;
-    height: 40px;
-    margin-top: 10px;
-    margin-right: 10px;
+    height: 45px;
+    margin-top: 30px;
+    margin-right: -19px;
     animation: girar infinite 30s linear;
 }
 
@@ -63,9 +63,9 @@ body {
 
 #brand {
     display: block;
-    margin: 0px;
+    margin: 30px;
     float: left;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 #menu {
@@ -343,4 +343,97 @@ textarea {
     margin-top: 16px;
     margin-bottom: 0px;
     border: none;
+}
+
+/* RESPOSIBLE*/
+/* Desde la anchura 0px hasta la anchura 1170px de la pantalla */
+ @media (max-width:1170px) {
+    /* se ejecutara este estilo */
+   .center {
+        width:85%;
+
+    }
+    
+}
+@media (max-width:1030px) {
+    /* se ejecutara este estilo */
+    .center {
+        width:95%;
+    }
+    #menu ul{
+        width: auto;
+    }
+    
+}
+
+@media (max-width:780px) {
+    /* se ejecutara este estilo */
+    
+    #logo{
+        float: none;
+        width: 240px;
+        margin: 0px auto;
+        margin-top: 20px;
+    }
+    #menu,
+    #menu ul{
+        clear: both;
+        float: none;
+        width: 100%;
+        margin:0px;
+        padding: 0px;
+        line-height: 25px;
+    }
+    #content{
+        float: none;
+        width:100%;
+    }
+    #sidebar{
+        float: none;
+        width: 60%;
+        margin: 0px auto;
+        margin-bottom: 50px;
+    }
+    #slider h1{
+        padding-top: 115px;
+        font-size: 25px;
+        
+    }
+    .mid-form{
+        width: 70%;
+    }
+    
+}
+
+@media (max-width:400px) {
+    /* se ejecutara este estilo */
+    #header {
+        min-height:130px;
+        overflow:hidden;
+    }
+    #menu,
+    #menu ul{
+        line-height: 50px;
+    }
+    #menu ul li {
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+    #slider{
+        height: 180px;
+    }
+    #slider h1 {
+        font-size: 18px;
+        padding-top:30px;
+    }
+    #slider .btn-white{
+        margin-top:20px;
+    }
+    #slider .slider-small{
+        height:85px;
+    }
+    #slider .slider-small h1{
+        padding-top:35px;
+    }
+
 }

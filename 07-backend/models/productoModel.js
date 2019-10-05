@@ -4,7 +4,7 @@
 //  utilizo esto para comunicarme la colecion de articulos
 'use strict'
 
-var mongoose('mongoose');
+var mongoose = require('mongoose');
 var esquema = mongoose.Schema;
 
 var ProductoEsquema = esquema({
@@ -14,8 +14,7 @@ var ProductoEsquema = esquema({
     image: String
 });
 
-module.exports = mongoose.model('Producto',ProductoEsquema);
+module.exports = mongoose.model('Producto', ProductoEsquema);
 
 // que mongoose.mode crear la coleccion basada en modelo ejmplo, nombre lo coloca en minuscula y lo plural
-// productos-->Guarda documentos de este tipo y con estructura de colleción. 
-
+// productos-->Guarda documentos de este tipo y con estructura de colleción.

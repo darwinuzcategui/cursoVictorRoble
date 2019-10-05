@@ -8,8 +8,8 @@ var mongoose = require('mongoose');
 var esquema = mongoose.Schema;
 
 var ProductoEsquema = esquema({
-    titulo: String,
-    contenido: String,
+    nombre: String,
+    descripcion: String,
     fecha: { type: Date, default: Date.now },
     image: String
 });

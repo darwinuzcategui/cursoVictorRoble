@@ -9,6 +9,9 @@ var Producto = require('../models/productoModel');
 
 var controlador = {
 
+    // metodos de prueba o test para probar api
+    // ********************************************
+
     datosCurso: (req, res) => {
         var hola = req.body.hola;
         var otro1 = req.body.otros;
@@ -29,7 +32,10 @@ var controlador = {
         });
 
     },
+    //********  fin de metodos de prueba*****************
 
+
+    //***************************************************
     // metodo para Guardar Productos
     // Metodo Permitira crear productos
 
@@ -47,6 +53,7 @@ var controlador = {
 
         } catch (error) {
             return res.status(200).send({
+                status: ' Error',
                 mensaje: ' Faltan Datos por Enviar !!'
             });
         }
@@ -56,18 +63,35 @@ var controlador = {
             // });
 
             // Crear el Objeto a guardar.
+            var producto = new Producto(); // instaciamos el obejto de acuerdo al modelo
 
             // Asiganar valores.
+            producto.nombre = parametros.nombre;
+            producto.descripcion = parametros.descripcion;
+            producto.image = null;
+
 
             // Guradar el producto.
+            producto.save((err, productoStored) => {
 
-            // Devolver una respuesta.
-            return res.status(200).send({
-                producto: parametros
-                    // mensaje: ' Soy la Acción save que grabar mi controtalador de Productos'
+                if (err || !productoStored) {
+                    return res.status(404).send({
+                        status: 'error',
+                        mensaje: 'El articulo no se ha Guardado!!! '
+                    });
+                }
+                // Devolver una respuesta.
+                return res.status(200).send({
+                    status: 'Satisfactorio',
+                    producto: productoStored
+                });
+
             });
+
+
         } else {
             return res.status(200).send({
+                status: ' Error',
                 mensaje: ' Los datos no son Validos !!'
             });
 

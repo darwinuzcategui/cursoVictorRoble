@@ -49,12 +49,16 @@ body {
     height: 45px;
     margin-top: 30px;
     margin-right: -19px;
-    animation: girar infinite 30s linear;
+    animation: girar infinite 5s linear;
 }
 
 @keyframes girar {
     from {
         transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(270deg);
+
     }
     to {
         transform: rotate(360deg);
@@ -437,3 +441,4 @@ textarea {
     }
 
 }
+

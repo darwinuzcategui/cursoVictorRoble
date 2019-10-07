@@ -3,15 +3,15 @@
 'use strict'
 
 var validador = require('validator');
+var fs = require('fs');
+var path = require('path');
 var Producto= require('../models/productoModel');
 
-
-
+// creacion de la clases controladores que tiene todo los metodos de mi api rest
 var controlador = {
 
     // metodos de prueba o test para probar api
     // ********************************************
-
     datosCurso: (req, res) => {
         var hola = req.body.hola;
         var otro1 = req.body.otros;
@@ -25,7 +25,6 @@ var controlador = {
             otro1
         });
     },
-
     test: (req, res) => {
         return res.status(200).send({
             mensaje: ' Soy la Acción test de mi controtalador de Productos'
@@ -35,10 +34,13 @@ var controlador = {
     //********  fin de metodos de prueba*****************
 
 
+
     //***************************************************
     // metodo para Guardar Productos
     // Metodo Permitira crear productos
 
+    // metodos para guardar productos
+    //*************************** */
     save: (req, res) => {
         // Recoger Parametros por el metodos post
 
@@ -97,7 +99,8 @@ var controlador = {
 
         }
     },
-
+    // metodo para consultar todoslos producto
+    //**************************** */
     getProducto: (req, res) => {
 
         var consulta = Producto.find({});
@@ -135,7 +138,8 @@ var controlador = {
 
 
     },
-
+    // metodo para consultar un producto
+    //**************************** */
     getUnProducto: (req, res) => {
 
         // Recoger el id de la url.
@@ -175,7 +179,7 @@ var controlador = {
 
     },
 
-    
+    // metodo para actulizar productos
     actualizar: (req, res) => {
         // Recoger el id del Producto del url.
         var productoId = req.params.id;
@@ -245,9 +249,12 @@ var controlador = {
         }
     },
 
+    // metodo para eliminar Productos
+    //******************************
     eliminar: (req, res) => {
         // recoger id
         var productoId = req.params.id;
+
         // Un metodo que buscar y elimina --Find and delete
         Producto.findOneAndDelete({_id: productoId}, (err, productoEliminado) => {
             if(err){
@@ -265,11 +272,149 @@ var controlador = {
             }
 
             return res.status(200).send({
-                status: 'success',
+                status: 'sastifactorio',
                 producto: productoEliminado
             });
 
         }); 
+    },
+
+    // metodo subir archivos en servidor
+    //********************************** */
+    subir: (req, res) =>{
+        // Configurar el modulo conect Multiparty rutas/productos ( esto se hizo en rutas productos)
+
+        // Recoger el fichero de la petición
+        var nombre_archivo = 'Imagen no Subida...';
+
+        //console.log(req.files);
+        if(!req.files){
+            return res.status(404).send({
+                status: 'error',
+                mensaje: nombre_archivo
+            });
+
+        }
+        
+
+
+        // Conseguir nombre y la extesion de archivo
+        var archivo_path = req.files.file0.path;
+        console.log(archivo_path);
+        var archivo_split = archivo_path.split('\\');
+        // * ADVERTENCIA * EN LINUX O MAC
+        // var archivo_split = archivo_path.split('\\');
+        // console.log(archivo_split);
+        // Nombre de archivo
+        var nombre_archivo = archivo_split[2];
+        var extesion_split = nombre_archivo.split('\.')
+        var archivo_extesion = extesion_split[1];
+        console.log(archivo_extesion);
+      
+        // Comprbar La extesion, (solo imagenes) si no es valida borrar el archivo.
+        if(archivo_extesion != 'png' && archivo_extesion != 'jpg' && archivo_extesion != 'jpeg' && archivo_extesion != 'gif' ){
+            // borra el archivo
+            fs.unlink(archivo_path, (err)=>{
+                return res.status(200).send({
+                    status: 'error',
+                    mensaje:'La extesión de la imagen no valida !!!'
+                });
+
+
+            });
+        }else{
+            // si todo es valido, saco id que me llega por url
+            var productoId = req.params.id;
+            
+            // Buscar el articulo, asiganarle el nombre de la imagen y actulizarlo
+            Producto.findOneAndUpdate({_id: productoId}, {image: nombre_archivo}, {new:true},(err, productoActulizado)=>{
+
+               if( err || !productoActulizado){
+                return res.status(200).send({
+                    status: 'error',
+                    mensaje: 'error al guardar producto'
+                });
+
+
+               }
+                return res.status(200).send({
+                    status: 'satisfcatorio',
+                    producto: productoActulizado
+                });
+
+            });
+            /*
+            return res.status(200).send({
+                archivo: req.files,
+                split: archivo_split,
+                archivo_extesion
+            });
+
+            */
+        }
+
+       
+
+    }, // fin del metodo Subir archivo de imagen
+
+    // metodo para visualizar la imagen
+    //********************************** */
+    getImagen: (req, res) => {
+        var archivo = req.params.imagen;
+        var path_file='./upload/productos/'+archivo;
+
+        fs.exists(path_file, (exists)=> {
+            if(exists){
+                return res.sendFile(path.resolve(path_file));
+
+            }else{
+                return res.status(404).send({
+                    status: 'error',
+                    mensaje: 'La Imagen No exsiste !!!'
+               });
+                  
+            }
+
+        });
+    }, // fin de get imagen
+    
+    // metodos buscar 
+    //************************** */
+    buscar:(req,res)=>{
+        // Sacar el String a buscar
+        var buscarString = req.params.buscar
+
+        //  Buscar varias condiciones.
+        // con los metodos Find or
+        Producto.find({ "$or":[
+            {"nombre": {"$regex": buscarString,"$options":"i" }},
+            {"descripcion": {"$regex": buscarString,"$options":"i" }}
+           
+        ]})
+        .sort([['fecha','descending']])
+        .exec((err, productos) =>{
+            if(err){
+                return res.status(500).send({
+                    status:'error',
+                    mensaje: 'error en la peticion de busqueda'
+                });
+            }
+            if(!productos){
+                return res.status(500).send({
+                    status:'error',
+                    mensaje: 'No hay articulos para mostrar'
+                });
+
+            }
+
+            return res.status(200).send({
+                status:'sastifactorio',
+                mensaje:'Buscar producto',
+                productos
+            });
+
+        });
+
     }
 
     

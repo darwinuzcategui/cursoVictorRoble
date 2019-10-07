@@ -5,7 +5,9 @@ var app      = require ('./app');
 
 var port = 3900;
 var url = 'mongodb://localhost:27017/api_rest_blog';
-var opciones = { useNewUrlParser: true };
+var opciones = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true };
 
 // configuraciones interna para la base datos
 // para utilizar promesas y desactivar los metodos antiguos 

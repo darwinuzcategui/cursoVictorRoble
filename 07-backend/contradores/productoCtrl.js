@@ -386,6 +386,9 @@ var controlador = {
 
         //  Buscar varias condiciones.
         // con los metodos Find or
+        // TODO:  colocar LA BUSQUEDA POR CODIGOS Y OTROS CAMPOS
+        // TODO: REALIZAR EL PROCESO EXPRESIONES REGULARES
+                    
         Producto.find({ "$or":[
             {"nombre": {"$regex": buscarString,"$options":"i" }},
             {"descripcion": {"$regex": buscarString,"$options":"i" }}
@@ -399,7 +402,7 @@ var controlador = {
                     mensaje: 'error en la peticion de busqueda'
                 });
             }
-            if(!productos){
+            if(!productos || productos.length <= 0){
                 return res.status(500).send({
                     status:'error',
                     mensaje: 'No hay articulos para mostrar'

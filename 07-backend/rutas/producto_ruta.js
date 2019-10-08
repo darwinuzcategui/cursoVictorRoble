@@ -8,7 +8,7 @@ var ruta = express.Router();
 var multipart = require('connect-multiparty');
 var md_subir = multipart({ uploadDir:'./upload/productos'});
 
-
+ // FIXME: prueba  ERROR POR ACOMODAR EJEMPLO
 // Rutas de pruebas
 ruta.post('/datos-curso', ProductoControlador.datosCurso);
 ruta.get('/test-de-controlador', ProductoControlador.test);
@@ -25,3 +25,5 @@ ruta.get('/get-imagen/:imagen',ProductoControlador.getImagen);
 ruta.get('/buscar/:buscar',ProductoControlador.buscar);
 
 module.exports = ruta;
+
+

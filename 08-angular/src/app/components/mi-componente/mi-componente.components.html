@@ -1,0 +1,12 @@
+<h1>{{ titulo }}</h1>
+<h2>{{ year }}</h2>
+<p>{{ comentario }}</p>
+<p>{{ sw }}</p>
+<p>hola soy un nuevo parrafo</p>
+<hr />
+
+<button (click)="ocultarVendedor()">Ocultar Vendedor</button>
+
+<div *ngIf="sw">
+  <vendedor></vendedor>
+</div>

@@ -1,1 +1,15 @@
 <h1 class="subheader">Pagina de Prueba</h1>
+
+<!-- Aqui utilizio un directiva -->
+
+<div *ngIf="nombre && apellidos">
+  <h2>El Nombre es: {{nombre}}</h2>
+  <h2>El apellidos es: {{apellidos}}</h2>
+</div>
+
+<div *ngIf="!nombre || !apellidos">
+  <h2> No hay datos por la Url</h2>
+  <h2> No hay datos que mostrar</h2>
+</div>
+
+<button (click)="redirecion()">Pon Nombre y Apellido</button>

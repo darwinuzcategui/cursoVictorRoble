@@ -10,20 +10,18 @@ import { PaginaComponent } from './components/pagina/pagina.component';
 import { VendedorComponent } from './components/vendedor/vendedor.component';
 import { ErrorComponent } from './components/error/error.component';
 
-
 // array de rutas
 const rutas: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'blog', component: BlogComponent},
-  {path: 'formulario', component: FormularioComponent},
-  {path: 'vendedor', component: VendedorComponent},
-  {path: 'pagina-de-prueba', component: PaginaComponent},
-  {path: '**', component: ErrorComponent}
-
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'formulario', component: FormularioComponent },
+  { path: 'vendedor', component: VendedorComponent },
+  { path: 'pagina-de-prueba', component: PaginaComponent },
+  { path: 'pagina-de-prueba/:nombre/:apellidos', component: PaginaComponent },
+  { path: '**', component: ErrorComponent }
 ];
 
 // Exportar el modulo de rutas appRoutingProviders, routing
 export const appRoutingProviders: any[] = [];
 export const routing: ModuleWithProviders = RouterModule.forRoot(rutas);
-

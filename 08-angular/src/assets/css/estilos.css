@@ -124,7 +124,7 @@ body {
   background: -o-linear-gradient(-45deg, rgba(248,80,50,1) 7%, rgba(248,79,49,1) 8%, rgba(240,47,23,1) 29%, rgba(241,111,92,1) 43%, rgba(246,41,12,1) 51%, rgba(248,80,50,1) 66%, rgba(255,0,0,1) 79%, rgba(255,0,0,1) 85%);
   background: -ms-linear-gradient(-45deg, rgba(248,80,50,1) 7%, rgba(248,79,49,1) 8%, rgba(240,47,23,1) 29%, rgba(241,111,92,1) 43%, rgba(246,41,12,1) 51%, rgba(248,80,50,1) 66%, rgba(255,0,0,1) 79%, rgba(255,0,0,1) 85%);
   background: linear-gradient(135deg, rgba(248,80,50,1) 7%, rgba(248,79,49,1) 8%, rgba(240,47,23,1) 29%, rgba(241,111,92,1) 43%, rgba(246,41,12,1) 51%, rgba(248,80,50,1) 66%, rgba(255,0,0,1) 79%, rgba(255,0,0,1) 85%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr= '#f85032', endColorstr='#ff0000', GradientType=1 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#f85032', endColorstr='#ff0000', GradientType=1 );
 
 }
 
@@ -174,6 +174,25 @@ body {
   float: left;
   min-height: 650px;
   margin-right: 20px;
+}
+
+/* Estilo con la directiva de angula de clas */
+.comision-orange {
+  display: block;
+  background: #F57C00;
+  color: wheat;
+  padding: 5px;
+  width: 140px;
+  text-align: center;
+}
+
+.comision-blue {
+  display: block;
+  background: blue;
+  color: wheat;
+  padding: 5px;
+  width: 140px;
+  text-align: center;
 }
 
 #sidebar {

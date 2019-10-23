@@ -1,5 +1,6 @@
 import { Component, OnInit, DoCheck, OnDestroy } from '@angular/core';
 import { log } from 'util';
+import { Vendedor } from '../../models/vendedor';
 
 @Component({
   selector: 'vendedor',
@@ -16,29 +17,31 @@ export class VendedorComponent implements OnInit, DoCheck, OnDestroy {
     this.vendedores = [
       // tslint:disable-next-line: max-line-length
       {
+        comision: 10,
         codigo: '001',
         nombre: 'Pedro Perez',
         imagen:
-          'https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/201909/02/00100114109424____6__516x640.jpg'
+          'https://conceptodefinicion.de/wp-content/uploads/2015/03/hombre.jpg'
       },
       {
+        comision: 15,
         codigo: '002',
         nombre: 'Maria Davila',
-        imagen:
-          'https://conceptodefinicion.de/wp-content/uploads/2015/03/hombre.jpg'
+        imagen: 'http://gmdsistemas.com.ve/Imagenes/mision.png'
       },
       {
+        comision: 16,
         codigo: '008',
         nombre: 'Juan Leonida',
-        imagen:
-          'https://conceptodefinicion.de/wp-content/uploads/2015/03/hombre.jpg'
+        imagen: 'http://gmdsistemas.com.ve/Imagenes/vision.png'
       },
       // tslint:disable-next-line: max-line-length
       {
+        comision: 20,
         codigo: '003',
         nombre: 'Maria Martinez',
         imagen:
-          'https://ichef.bbci.co.uk/news/624/cpsprodpb/3178/production/_90946621_thinkstockphotos-463360345.jpg'
+          'https://uy.emedemujer.com/wp-content/uploads/sites/4/2016/02/Mujer-de-negocios-exitosa.jpg'
       }
     ];
     console.log('CONTRUCTOR LANAZADO!!!, Se ejecuto o lanzo el contructor');

@@ -18,14 +18,33 @@
 <hr>
 <h2 class="subheader">Listados de Vendedores</h2>
 <div id="articulos" *ngIf="vendedores">
-  <article class="article-item" id="articulo-tempalte">
+
+  <article class="article-item" *ngFor="let vendedor of vendedores; let i = index" id="articulo-tempalte">
     <div class="image-wrap">
-      <img src="https://tierradegracia.net/wp-content/uploads/2014/05/playa-caribe-chuspa.jpg" alt="playa" />
+      <img src="{{vendedor.imagen}}" alt="{{vendedor.nombre}}" />
     </div>
-    <h2>Articulo de Playa Prueba</h2>
-    <span class="date">
+    <h2>{{i+1}}.- {{vendedor.codigo}} {{vendedor.nombre}}</h2>
+    <span class=" date">
       Hace 3 Minutos
     </span>
+    <!-- con la directiva style  -->
+    <!-- <span class="Comisión" [style.background]="vendedor.comision > 15 ? 'blue': 'orange'">
+      {{vendedor.comision}}
+    </span> -->
+
+    <!-- ejempolo Directiva de clases
+       <span class="Comisión" [class.comision-orange]="vendedor.comision > 15"
+        [class.comision-blue]="vendedor.comision <= 15">
+        {{vendedor.comision}}
+      </span> -->
+    <!-- ngClass queda mas ordenado -->
+    <span class="Comisión" [ngClass]="{
+      'comision-orange':vendedor.comision > 15,
+      'comision-blue':vendedor.comision <= 15
+    }">
+      {{vendedor.comision}}
+    </span>
+
     <a href="#">Leer más</a>
     <div class="limpiarflotados"></div>
     <!-- AGREGAR ELEMENTO VIAS JS -->

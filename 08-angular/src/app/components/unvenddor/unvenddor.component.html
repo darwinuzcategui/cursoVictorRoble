@@ -1,0 +1,34 @@
+<article class="article-item">
+  <div class="image-wrap">
+    <img src="{{ vendedor.imagen }}" alt="{{ vendedor.nombre }}" />
+  </div>
+  <h2>{{ vendedor.codigo }} {{ vendedor.nombre }}</h2>
+  <span class=" date">
+    Hace 3 Minutos
+  </span>
+  <!-- con la directiva style  -->
+  <!-- <span class="Comisión" [style.background]="vendedor.comision > 15 ? 'blue': 'orange'">
+{{vendedor.comision}}
+</span> -->
+
+  <!-- ejempolo Directiva de clases
+ <span class="Comisión" [class.comision-orange]="vendedor.comision > 15"
+  [class.comision-blue]="vendedor.comision <= 15">
+  {{vendedor.comision}}
+</span> -->
+  <!-- ngClass queda mas ordenado -->
+  <span
+    class="Comisión"
+    [ngClass]="{
+      'comision-orange': vendedor.comision > 15,
+      'comision-blue': vendedor.comision <= 15
+    }"
+  >
+    {{ vendedor.comision }}
+  </span>
+
+  <a href="#">Leer más</a>
+  <button (click)="seleccionar($event, vendedor)">Seleccione</button>
+  <div class="limpiarflotados"></div>
+  <!-- AGREGAR ELEMENTO VIAS JS -->
+</article>

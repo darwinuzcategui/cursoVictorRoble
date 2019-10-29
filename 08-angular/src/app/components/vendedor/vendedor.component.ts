@@ -11,6 +11,8 @@ export class VendedorComponent implements OnInit, DoCheck, OnDestroy {
   // TODO: Ciclo de vida del los componentes
   public titulo: string;
   public vendedores: Vendedor[];
+  public marcadoFavorito: Vendedor[];
+
 
   constructor() {
     this.titulo = 'Componente de Vendedor';
@@ -50,7 +52,7 @@ export class VendedorComponent implements OnInit, DoCheck, OnDestroy {
   ngOnInit() {
     // iniciar los componentes
     // carga de componente
-    console.log(this.vendedores);
+   // console.log(this.vendedores);
     console.log('componente iniciado !!! ,envento Oninit lanzado o ejecutado');
   }
 
@@ -69,5 +71,20 @@ export class VendedorComponent implements OnInit, DoCheck, OnDestroy {
   // ante de eliminar la instancia del componente se ejecuta oNdestroy()
   ngOnDestroy(): void {
     console.log('EL COMPONENTE SE VA ELIMINAR');
+  }
+  /*
+  mostrar(event){
+   console.log(event)
+   // this.marcadoFavorito = event.vendedor;
+   // console.log(this.marcadoFavorito);
+
+  }
+  */
+
+  eventoenElPadreParaMostra(event){
+    this.marcadoFavorito=event.vendedor;
+    console.log(this.marcadoFavorito);
+    
+
   }
 }

@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Darwin angular';
+  public title = 'Darwin angular';
+  public homeText = '*Bienvenido al Curso Angular Darwin Uzcategui';
 }

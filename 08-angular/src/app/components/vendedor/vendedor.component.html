@@ -5,26 +5,23 @@
   <section id="content">
     <div id="marcadoVendedor" *ngIf="marcadoFavorito">
       <h2 class="subheader">Vendedor Seleccionado</h2>
-     <h4> {{marcadoFavorito.nombre}} {{marcadoFavorito.codigo}}</h4>
-     <h5>{{marcadoFavorito.comision}}</h5>
+      <h3>
+        {{ marcadoFavorito.nombre | uppercase }} {{ marcadoFavorito.codigo }}
+      </h3>
+      <h4> Porcentage % : {{ marcadoFavorito.comision | espar }}</h4>
+      <h5>{{ this.fecha | date: 'dd/MM/yyyy'  }}</h5>
     </div>
 
     <h1 class="subheader">Vendedor</h1>
     <div id="articulos" *ngIf="vendedores">
-
       <div *ngFor="let vendedor of vendedores; let i = index">
-
-        <app-unvenddor 
-        [vendedor]="vendedor"
-        (MarcarFavorito)="eventoenElPadreParaMostra($event)"
+        <app-unvenddor
+          [vendedor]="vendedor"
+          (MarcarFavorito)="eventoenElPadreParaMostra($event)"
         ></app-unvenddor>
-
       </div>
-
     </div>
-
   </section>
 
   <app-sidebar></app-sidebar>
-
 </div>

@@ -16,6 +16,9 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { PaginaComponent } from './components/pagina/pagina.component';
 import { ErrorComponent } from './components/error/error.component';
 import { UnvenddorComponent } from './components/unvenddor/unvenddor.component';
+import { EsparPipe } from './pipes/espar.pipe';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,11 +35,14 @@ import { UnvenddorComponent } from './components/unvenddor/unvenddor.component';
     FormularioComponent,
     PaginaComponent,
     ErrorComponent,
-     UnvenddorComponent
+    UnvenddorComponent,
+    EsparPipe
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

@@ -16,6 +16,18 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
  
  console.log(this._productoService.pruebas());
+ // pruebando mi peticion http
+ this._productoService.getProductos().subscribe(
+   response => {
+     console.log(response);
+
+   },
+   error => {
+     console.log(error);
+
+   }
+ );
+
 }
 
 }

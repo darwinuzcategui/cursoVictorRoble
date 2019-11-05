@@ -1,11 +1,17 @@
-<app-slider [nombre]="'Blog'" 
-[size]="'small'"
-></app-slider>
+<app-slider [nombre]="'Blog'" [size]="'small'"></app-slider>
 
 <!-- Contenido de mi progragma -->
 <div class="center">
   <section id="content">
     <h1 class="subheader">Blog</h1>
+
+    <!-- LISTADOS ARTICULOS -->
+    <app-productos [productos]="productos"></app-productos>
+
+
   </section>
-  <app-sidebar></app-sidebar>
+
+  <app-sidebar>
+  </app-sidebar>
+
 </div>

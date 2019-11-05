@@ -1,0 +1,19 @@
+<div class="loading" *ngIf="!productos">
+  cargando...
+</div>
+<div id="articulos" *ngIf="productos">
+  <article class="article-item" *ngFor="let producto of productos">
+    <div class="image-wrap">
+      <img src="{{url + '/get-imagen/'+ producto.image}}" alt="{{producto.nombre}}" *ngIf="producto.image" />
+      <img src="assets/imagenes/noimg.png" alt="{{producto.nombre}}" *ngIf="!producto.image" />
+    </div>
+    <h2>{{producto.nombre}}</h2>
+    <span class="date">
+      {{producto.fecha | amLocale: 'es' |amTimeAgo}}
+    </span>
+    <a href="#">Leer más</a>
+    <div class="limpiarflotados"></div>
+
+
+  </article>
+</div>

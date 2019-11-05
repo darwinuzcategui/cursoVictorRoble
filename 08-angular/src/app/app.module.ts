@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { appRoutingProviders, routing} from './app.routing';
+import { appRoutingProviders, routing } from './app.routing';
 
 import { AppComponent } from './app.component';
 import { MiComponente } from './components/mi-componente/mi-componente.components';
@@ -19,6 +19,8 @@ import { UnvenddorComponent } from './components/unvenddor/unvenddor.component';
 import { EsparPipe } from './pipes/espar.pipe';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductosComponent } from './components/productos/productos.component';
+import { MomentModule } from 'angular2-moment';
 
 @NgModule({
   declarations: [
@@ -36,15 +38,11 @@ import { HttpClientModule } from '@angular/common/http';
     PaginaComponent,
     ErrorComponent,
     UnvenddorComponent,
-    EsparPipe
+    EsparPipe,
+    ProductosComponent
   ],
-  imports: [
-    BrowserModule,
-    routing,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, routing, FormsModule, HttpClientModule, MomentModule],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

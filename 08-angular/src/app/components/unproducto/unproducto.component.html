@@ -1,0 +1,42 @@
+<!-- Contenido de mi progragma -->
+<div class="center">
+  <section id="content">
+    <h1 class="subheader">{{producto.nombre}}</h1>
+
+    <div id="articulos">
+      <article class="articulo-detalle">
+        <div class="image-wrap">
+          <img src="{{url + '/get-imagen/'+ producto.image}}" alt="{{producto.nombre}}" *ngIf="producto.image" />
+          <img src="assets/imagenes/noimg.png" alt="{{producto.nombre}}" *ngIf="!producto.image" />
+        </div>
+        <h1 class="subtitulo">{{producto.nombre}}</h1>
+        <span class="date">
+          {{producto.fecha | amLocale: 'es' |amTimeAgo}}
+        </span>
+        <p>
+
+          {{producto.descripcion}}
+
+        </p>
+        <div class="botones">
+
+          <a href="#" class="btn btn-warning">Editar</a>
+          <br>
+          <a href="#" class="btn btn-danger">Borrar</a>
+          <br>
+
+        </div>
+
+        <div class="limpiarflotados">
+        </div>
+      </article>
+    </div>
+
+
+
+  </section>
+
+  <app-sidebar>
+  </app-sidebar>
+
+</div>

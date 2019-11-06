@@ -1,16 +1,16 @@
 <aside id="sidebar">
-    <div id="nav-blog" class="sidebar-item">
-        <h2>{{nombre}}</h2>
-        <h3>Aqui va el contenido</h3>
-        <a href="#" class="btn btn-success">Crear Articulos</a>
-    </div>
-    <div id="search" class="sidebar-item">
-        <h3>Buscador</h3>
-        <p>Encuentra el articulo que buscas</p>
-        <form>
-            <input type="text" name="search" />
-            <input type="submit" name="submit" value="Buscar" class="btn" />
-        </form>
-    </div>
+  <div id="nav-blog" class="sidebar-item">
+    <h2>{{nombre}}</h2>
+    <h3>Aqui va el contenido</h3>
+    <a href="#" class="btn btn-success">Crear Articulos</a>
+  </div>
+  <div id="search" class="sidebar-item">
+    <h3>Buscador</h3>
+    <p>Encuentra el articulo que buscas</p>
+    <form #formBuscar="ngForm" (ngSubmit)="irBuscar()">
+      <input type="text" name="search" [(ngModel)]="terminoBusquedad" />
+      <input type="submit" name="submit" value="Buscar" class="btn" />
+    </form>
+  </div>
 </aside>
 <div class="limpiarflotados"></div>

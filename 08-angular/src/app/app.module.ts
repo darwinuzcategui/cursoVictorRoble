@@ -21,6 +21,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductosComponent } from './components/productos/productos.component';
 import { MomentModule } from 'angular2-moment';
+import { UnproductoComponent } from './components/unproducto/unproducto.component';
+import { BuscarComponent } from './components/buscar/buscar.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { MomentModule } from 'angular2-moment';
     ErrorComponent,
     UnvenddorComponent,
     EsparPipe,
-    ProductosComponent
+    ProductosComponent,
+    UnproductoComponent,
+    BuscarComponent
   ],
   imports: [BrowserModule, routing, FormsModule, HttpClientModule, MomentModule],
   providers: [appRoutingProviders],

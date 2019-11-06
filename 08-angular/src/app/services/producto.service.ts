@@ -17,13 +17,19 @@ export class ProductoService {
   }
   // creao mi metodo para sacar mi productos
   getProductos(ultimos: any = null): Observable<any> {
-
-    let  productos = 'productos';
+    let productos = 'productos';
 
     if (ultimos != null) {
       productos = 'productos/ultimos';
     }
 
-    return this._http.get(this.url + productos );
+    return this._http.get(this.url + productos);
+  }
+  // metodos para sacar un productos del backend
+  getUnproducto(produId): Observable<any> {
+    return this._http.get(this.url + 'producto/' + produId);
+  }
+  buscar(terminoBusqueda): Observable<any> {
+    return this._http.get(this.url + 'buscar/' + terminoBusqueda);
   }
 }

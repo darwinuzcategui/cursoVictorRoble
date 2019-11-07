@@ -32,4 +32,11 @@ export class ProductoService {
   buscar(terminoBusqueda): Observable<any> {
     return this._http.get(this.url + 'buscar/' + terminoBusqueda);
   }
+  create(producto):Observable<any> {
+    let params = JSON.stringify(producto); // con esta intrucion lo convierto un objeto json string
+
+    // una variable para configurar la diferente cabeceras
+    let headers = new HttpHeaders().set('Content-TYpe', 'application/json');
+    return this._http.post(this.url + 'save', params, {headers: headers});
+  }
 }

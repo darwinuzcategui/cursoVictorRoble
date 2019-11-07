@@ -23,6 +23,8 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { MomentModule } from 'angular2-moment';
 import { UnproductoComponent } from './components/unproducto/unproducto.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
+import { ProductoNewComponent } from './components/producto-new/producto-new.component';
+import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 @NgModule({
   declarations: [
@@ -43,9 +45,17 @@ import { BuscarComponent } from './components/buscar/buscar.component';
     EsparPipe,
     ProductosComponent,
     UnproductoComponent,
-    BuscarComponent
+    BuscarComponent,
+    ProductoNewComponent
   ],
-  imports: [BrowserModule, routing, FormsModule, HttpClientModule, MomentModule],
+  imports: [
+    BrowserModule,
+    routing,
+    FormsModule,
+    AngularFileUploaderModule,
+    HttpClientModule,
+    MomentModule,
+  ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })

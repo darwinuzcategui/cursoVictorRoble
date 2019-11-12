@@ -1,6 +1,6 @@
 <div class="center">
   <section id="content">
-    <h1 class="subheader">Incluir Producto</h1>
+    <h1 class="subheader">{{pagina_titulo}}</h1>
 
     <form class="mid-form" #productoFormulario="ngForm" (ngSubmit)="onSubmit()">
 
@@ -22,9 +22,13 @@
       </div>
 
       <div class="form-group">
+      <div class="imagen-editar" *ngIf="is_edit">
+          <img src="{{url + '/get-imagen/'+ producto.image}}" alt="{{producto.nombre}}" *ngIf="producto.image" />
+          <img src="assets/imagenes/noimg.png" alt="{{producto.nombre}}" *ngIf="!producto.image" />
+
+      </div>
         <!-- <label for="image">Imagen del Producto</label> -->
-        <angular-file-uploader [config]="afuConfig" 
-                               (ApiResponse)="imagenSubir($event)">
+        <angular-file-uploader [config]="afuConfig" (ApiResponse)="imagenSubir($event)">
 
         </angular-file-uploader>
       </div>

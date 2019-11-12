@@ -12,6 +12,7 @@ import { VendedorComponent } from './components/vendedor/vendedor.component';
 import { ErrorComponent } from './components/error/error.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { ProductoNewComponent } from './components/producto-new/producto-new.component';
+import { ProductoEditComponent } from './components/producto-edit/producto-edit.component';
 
 // array de rutas
 const rutas: Routes = [
@@ -20,6 +21,7 @@ const rutas: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'blog/producto/:id', component: UnproductoComponent },
   { path: 'blog/incluir', component: ProductoNewComponent },
+  { path: 'blog/editar/:id', component: ProductoEditComponent },
   { path: 'buscar/:termino', component: BuscarComponent },
   { path: 'formulario', component: FormularioComponent },
   { path: 'vendedor', component: VendedorComponent },

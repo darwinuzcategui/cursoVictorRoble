@@ -25,6 +25,7 @@ import { UnproductoComponent } from './components/unproducto/unproducto.componen
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { ProductoNewComponent } from './components/producto-new/producto-new.component';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
+import { ProductoEditComponent } from './components/producto-edit/producto-edit.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
     ProductosComponent,
     UnproductoComponent,
     BuscarComponent,
-    ProductoNewComponent
+    ProductoNewComponent,
+    ProductoEditComponent
   ],
   imports: [
     BrowserModule,

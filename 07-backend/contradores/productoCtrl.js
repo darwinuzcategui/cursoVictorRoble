@@ -196,7 +196,7 @@ var controlador = {
             });
           }
           return res.status(200).send({
-            status: 'sastifactorio',
+            status: 'Satisfactorio',
             producto: productoActulizado
           });
         }
@@ -233,7 +233,7 @@ var controlador = {
       }
 
       return res.status(200).send({
-        status: 'sastifactorio',
+        status: 'Satisfactorio',
         producto: productoEliminado
       });
     });
@@ -299,14 +299,14 @@ var controlador = {
               });
             }
             return res.status(200).send({
-              status: 'satisfcatorio',
+              status: 'Satisfactorio',
               producto: productoActulizado
             });
           }
         );
       } else {
         return res.status(200).send({
-          status: 'satisfcatorio',
+          status: 'Satisfactorio',
           image: nombre_archivo
         });
       }
@@ -373,7 +373,7 @@ var controlador = {
         }
 
         return res.status(200).send({
-          status: 'sastifactorio',
+          status: 'Satisfactorio',
           mensaje: 'Buscar producto',
           productos
         });

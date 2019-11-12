@@ -6,6 +6,7 @@ import { ProductoService } from '../../services/producto.service';
 
 import { Producto } from '../../models/producto';
 import { Global } from '../../services/global';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-unproducto',
@@ -27,7 +28,7 @@ export class UnproductoComponent implements OnInit {
 
   ngOnInit() {
     this.rutaActiva.params.subscribe(params => {
-      let id = params['id'];
+      const id = params.id;
       this.productoService.getUnproducto(id).subscribe(
         response => {
           if (response.producto) {
@@ -42,6 +43,34 @@ export class UnproductoComponent implements OnInit {
           this.ruta.navigate(['/home']);
         }
       );
+    });
+  }
+
+  delete(id) {
+    swal({
+      title: 'Esta Seguro?',
+      text: 'Una vez Borrado el producto No podra Recuperlo!',
+      icon: 'warning',
+      buttons: [true, true],
+      dangerMode: true
+    })
+    .then(willDelete => {
+      if (willDelete) {
+        this.productoService.delete(id).subscribe(
+          response => {
+            swal('El Producto ha sido eliminado!', {
+              icon: 'success'
+            });
+            this.ruta.navigate(['/blog']);
+          },
+          error => {
+            console.log(error);
+            this.ruta.navigate(['/blog']);
+          }
+        );
+      } else {
+        swal('Tranquilo nada se ha eliminado !');
+      }
     });
   }
 }

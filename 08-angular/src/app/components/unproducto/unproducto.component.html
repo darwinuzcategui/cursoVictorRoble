@@ -20,9 +20,9 @@
         </p>
         <div class="botones">
 
-          <a href="#" class="btn btn-warning">Editar</a>
+          <a [routerLink]="['/blog/editar',producto._id]" class="btn btn-warning">Editar</a>
           <br>
-          <a href="#" class="btn btn-danger">Borrar</a>
+          <a (click)="delete(producto._id)" class="btn btn-danger">Borrar</a>
           <br>
 
         </div>
